@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 
 const mongoose = require("mongoose");
@@ -17,8 +17,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes);
 
-
-//------------------------------------------------------------------ 
+//------------------------------------------------------------------
 // Google Authentication with Passportjs
 
 // const passport = require("passport")
@@ -31,7 +30,7 @@ app.use(routes);
 //   },
 //   function(accessToken, refreshToken, profile, cb) {
 //     console.log (accessToken)
-    
+
 //     console.log (profile)
 //     // User.findOrCreate({ googleId: profile.id }, function (err, user) {
 //     //   return cb(err, user);
@@ -42,7 +41,7 @@ app.use(routes);
 // app.get('/auth/google',
 //   passport.authenticate('google', { scope: ['profile','email'] }));
 
-// app.get('/auth/google/callback', 
+// app.get('/auth/google/callback',
 //   passport.authenticate('google'));
 //   // { failureRedirect: '/' }),
 //   // function(req, res) {
@@ -50,13 +49,15 @@ app.use(routes);
 //   //   res.redirect('/');
 //   // });
 
-//------------------------------------------------------------------  
+//------------------------------------------------------------------
 
 // Connect to the Mongo DB
 
-mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_DB_BUZZSUITE, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_DB_BUZZSUITE, {
+  useNewUrlParser: true
+});
 
 // Start the API server
-app.listen(PORT, function () {
+app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
